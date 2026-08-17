@@ -123,7 +123,7 @@ static u8 sPssSlideStarted = FALSE;
  * Returns the type of cap Mario is wearing.
  */
 u32 get_mario_cap_flag(struct Object *capObject) {
-    const BehaviorScript *script = virtual_to_segmented(SEGMENT_BEHAVIOR_DATA, capObject->behavior);
+    const BehaviorScript *script = capObject->behavior;
 
     if (script == bhvNormalCap) {
         return MARIO_NORMAL_CAP;
@@ -416,7 +416,7 @@ u32 mario_check_object_grab(struct MarioState *m) {
     const BehaviorScript *script;
 
     if (m->input & INPUT_INTERACT_OBJ_GRABBABLE) {
-        script = virtual_to_segmented(SEGMENT_BEHAVIOR_DATA, m->interactObj->behavior);
+        script = m->interactObj->behavior;
 
         if (script == bhvBowser) {
             s16 facingDYaw = m->faceAngle[1] - m->interactObj->oMoveAngleYaw;
@@ -1625,7 +1625,7 @@ u32 interact_cap(struct MarioState *m, UNUSED u32 interactType, struct Object *o
 }
 
 u32 interact_grabbable(struct MarioState *m, u32 interactType, struct Object *obj) {
-    const BehaviorScript *script = virtual_to_segmented(SEGMENT_BEHAVIOR_DATA, obj->behavior);
+    const BehaviorScript *script = obj->behavior;
 
     if (obj->oInteractionSubtype & INT_SUBTYPE_KICKABLE) {
         u32 interaction = determine_interaction(m, obj);

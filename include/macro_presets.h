@@ -13,6 +13,7 @@ struct MacroPreset {
 };
 
 struct MacroPreset MacroObjectPresets[] = {
+#if 0
     {bhvYellowCoin,                     MODEL_YELLOW_COIN,                  0}, // macro_yellow_coin
     {bhvOneCoin,                        MODEL_YELLOW_COIN,                  0}, // macro_yellow_coin_2
     {bhvMovingBlueCoin,                 MODEL_BLUE_COIN,                    0}, // macro_moving_blue_coin
@@ -387,6 +388,7 @@ struct MacroPreset MacroObjectPresets[] = {
     {bhvFloombaTripletSpawner,          MODEL_NONE,                         8}  // macro_floomba_quintuplet_spawner - unused
 #else
     {bhvYellowCoin,                     MODEL_YELLOW_COIN,                  0}  // macro_empty_365
+#endif
 #endif
 };
 
