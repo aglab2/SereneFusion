@@ -136,11 +136,11 @@ LINK_LIBRARIES = $(foreach i,$(LIBRARIES),-l$(i))
 #==============================================================================#
 
 # Default non-gcc opt flags
-DEFAULT_OPT_FLAGS = -Ofast
+DEFAULT_OPT_FLAGS = -Os -Wno-int-conversion -Wno-incompatible-pointer-types -Wno-implicit-function-declaration
 # Note: -fno-associative-math is used here to suppress warnings, ideally we would enable this as an optimization but
 # this conflicts with -ftrapping-math apparently.
 # TODO: Figure out how to allow -fassociative-math to be enabled
-SAFETY_OPT_FLAGS = -ftrapping-math -fno-associative-math
+SAFETY_OPT_FLAGS = -ffast-math -ftrapping-math -fno-associative-math
 
 # Main opt flags
 GCC_MAIN_OPT_FLAGS = \
@@ -163,8 +163,7 @@ GCC_COLLISION_OPT_FLAGS = \
   -fno-inline \
   -freorder-blocks-algorithm=simple  \
   -ffunction-sections \
-  -fdata-sections \
-  -falign-functions=32
+  -fdata-sections
 
 # Math Util
 GCC_MATH_UTIL_OPT_FLAGS = \
@@ -173,8 +172,7 @@ GCC_MATH_UTIL_OPT_FLAGS = \
   -fno-peel-loops \
   --param case-values-threshold=20  \
   -ffunction-sections \
-  -fdata-sections \
-  -falign-functions=32
+  -fdata-sections
 #   - setting any sort of -finline-limit has shown to worsen performance with math_util.c,
 #     lower values were the worst, the higher you go - the closer performance gets to not setting it at all
 
@@ -187,8 +185,7 @@ GCC_GRAPH_NODE_OPT_FLAGS = \
   -finline-limit=0 \
   -freorder-blocks-algorithm=simple  \
   -ffunction-sections \
-  -fdata-sections \
-  -falign-functions=32
+  -fdata-sections
 #==============================================================================#
 
 ifeq ($(COMPILER),gcc)
