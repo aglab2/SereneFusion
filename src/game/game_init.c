@@ -242,6 +242,7 @@ void clear_viewport(Vp *viewport, s32 color) {
  * Draw the horizontal screen borders.
  */
 void draw_screen_borders(void) {
+    return;
     gDPPipeSync(gDisplayListHead++);
 
     gDPSetScissor(gDisplayListHead++, G_SC_NON_INTERLACE, 0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);

@@ -18,7 +18,7 @@
 
 // Height of the black borders at the top and bottom of the screen for NTSC Versions. You can set it to different values for console and emulator.
 // There is generally no reason to have a value other than 0 for emulator. As for console, it provides a (small) performance boost.
-#define BORDER_HEIGHT_CONSOLE  0
+#define BORDER_HEIGHT_CONSOLE  10
 #define BORDER_HEIGHT_EMULATOR 0
 
 // Informs supported emulators to default to gamecube controller inputs
