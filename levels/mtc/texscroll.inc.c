@@ -14,7 +14,7 @@ void scroll_gfx_mtc_dl_Course_13_mesh_layer_1() {
 void scroll_gfx_mtc_dl_Course_13_007_mesh_layer_1() {
 	Gfx *mat = segmented_to_virtual(mtc_dl_Course_13_007_mesh_layer_1);
 
-	shift_t(mat, 19, PACK_TILESIZE(0, 1));
+	shift_t(mat, 14, PACK_TILESIZE(0, 1));
 
 };
 
