@@ -62,7 +62,7 @@ const char *creditsPJ74[] = { "2PJ74 TEAM", "ARTHURTILLY", "GALAXTIC" };
 const char *creditsMusic[] = { "3MUSIC", "AGLAB", "SCUTTLEBUG RAISER", "GAEL" };
 const char *creditsRovert[] = { "1DEVELOPER", "ROVERT" };
 const char *creditsDan[] = { "1DEVELOPER", "DORRIEAL" };
-const char *creditsLuigiman[] = { "1DEVELOPER", "LUIGIMAN" };
+const char *creditsLuigiman[] = { "1DEVELOPER", "ALKAMYST" };
 const char *creditsSpec[] = { "2SPECIAL THANKS", "WOLSK", "ANDREWSM64" };
 const char *creditsSpiders[] = { "1DEVELOPER", "USERNAMES ARE SPIDERS" };
 
