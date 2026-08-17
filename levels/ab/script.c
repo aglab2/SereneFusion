@@ -122,7 +122,7 @@ const LevelScript level_ab_entry[] = {
 		OBJECT(MODEL_RED_COIN, 497, -2333, -7796, 0, -2, 0, 0x00000000, bhvRedCoin),
 		OBJECT(MODEL_RED_COIN, -1445, -633, -7736, 0, -2, 0, 0x00000000, bhvRedCoin),
 		OBJECT(MODEL_AB_SAND, 4476, -8340, -8379, 0, -2, 0, (2 << 24), bhvAbSand),
-		OBJECT(MODEL_NONE, 200, -2460, -8724, 0, -2, 0, (2 << 16), bhvFish),
+		OBJECT(MODEL_FISH, 200, -2460, -8724, 0, -2, 0, (2 << 16), bhvFishSpawner),
 		OBJECT(MODEL_NONE, 438, -2585, -9138, 0, -2, 0, 0x00000000, bhvHiddenStarTrigger),
 		OBJECT(MODEL_SKEETER, -5615, -517, -7388, 0, -2, 0, 0x00000000, bhvSkeeter),
 		OBJECT(MODEL_SKEETER, 159, -519, -7532, 0, -2, 0, 0x00000000, bhvSkeeter),

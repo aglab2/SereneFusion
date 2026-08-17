@@ -2003,7 +2003,9 @@ extern u8 sOWIsShownFlags;
  * Relocates cursor position of the last save if the game goes back to the Mario Screen
  * either completing a course choosing "SAVE & QUIT" or having a game over.
  */
+extern void set_vi_mode(int enabled);
 s32 lvl_init_menu_values_and_cursor_pos(UNUSED s32 arg, UNUSED s32 unused) {
+    set_vi_mode(6);
     sSelectedButtonID = MENU_BUTTON_NONE;
     sCurrentMenuLevel = MENU_LAYER_MAIN;
     sOWIsFirstLaunchFlags = 0;

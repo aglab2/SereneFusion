@@ -229,6 +229,84 @@ void clear_area_graph_nodes(void) {
     }
 }
 
+typedef struct
+{
+    /* 0x0 */ f32 factor;
+    /* 0x4 */ u16 offset;
+    /* 0x8 */ u32 scale;
+} __OSViScale;
+
+typedef struct
+{
+    /* 0x0 */ u16 state;
+    /* 0x2 */ u16 retraceCount;
+    /* 0x4 */ void *framep;
+    /* 0x8 */ OSViMode *modep;
+    /* 0xC */ u32 control;
+    /* 0x10 */ OSMesgQueue *msgq;
+    /* 0x14 */ OSMesg msg;
+    /* 0x18 */ __OSViScale x;
+    /* 0x24 */ __OSViScale y;
+} __OSViContext; // 0x30 bytes
+
+extern __OSViContext *__osViNext __attribute__((section(".data")));
+#define VI_STATE_XSCALE_UPDATED 0x02
+
+extern void __osRestoreInt(u32);
+extern u32 __osDisableInt();
+
+static void osViSetXScaleRaw(u32 scale) {
+    register u32 nomValue;
+    register u32 saveMask = __osDisableInt();
+    
+    __osViNext->x.factor = 0;
+    __osViNext->state |= VI_STATE_XSCALE_UPDATED;
+    __osViNext->x.scale = scale;
+    __osRestoreInt(saveMask);
+}
+
+void set_vi_mode(int enabled)
+{
+    register u32 saveMask = __osDisableInt();
+    if (3 == (enabled & 3))
+    {
+        osViSetXScaleRaw(0x201);
+    }
+    else
+    {
+        osViSetXScaleRaw(0x200);
+    }
+    
+    if (enabled & 1)
+    {
+        __osViNext->control |= 0x00100;
+    }
+    else
+    {
+        __osViNext->control &= ~0x00100;
+    }
+
+    if (enabled & 2)
+    {
+        __osViNext->control |= 0x00200;
+    }
+    else
+    {
+        __osViNext->control &= ~0x00200;
+    }
+
+    if (enabled & 4)
+    {
+        __osViNext->control &= ~VI_CTRL_DITHER_FILTER_ON;
+    }
+    else
+    {
+        __osViNext->control |= VI_CTRL_DITHER_FILTER_ON;
+    }
+
+    __osRestoreInt(saveMask);
+}
+
 void load_area(s32 index) {
     if (gCurrentArea == NULL && gAreaData[index].graphNode != NULL) {
         gCurrentArea = &gAreaData[index];

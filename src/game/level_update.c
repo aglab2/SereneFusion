@@ -1522,7 +1522,9 @@ s32 lvl_init_from_save_file(UNUSED s16 initOrUpdate, s32 levelNum) {
     return levelNum;
 }
 
+extern void set_vi_mode(int);
 s32 lvl_set_current_level(UNUSED s16 initOrUpdate, s32 levelNum) {
+    set_vi_mode(7);
     s32 warpCheckpointActive = sWarpCheckpointActive;
 
     sWarpCheckpointActive = FALSE;
