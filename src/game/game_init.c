@@ -145,7 +145,7 @@ const Gfx init_rsp[] = {
     gsSPSetGeometryMode(G_SHADE | G_SHADING_SMOOTH | G_CULL_BACK | G_LIGHTING),
     gsSPNumLights(NUMLIGHTS_1),
     gsSPTexture(0, 0, 0, G_TX_RENDERTILE, G_OFF),
-    gsSPClipRatio(FRUSTRATIO_2),
+    gsSPClipRatio(FRUSTRATIO_1),
     gsSPEndDisplayList(),
 };
 

@@ -2794,7 +2794,7 @@ const Gfx dl_waterbox_ia16_begin[] = {
 // 0x02014810 - 0x02014838
 const Gfx dl_waterbox_end[] = {
     gsSPTexture(0xFFFF, 0xFFFF, 0, G_TX_RENDERTILE, G_OFF),
-    gsSPClipRatio(FRUSTRATIO_2),
+    gsSPClipRatio(FRUSTRATIO_1),
     gsDPPipeSync(),
     gsSPSetGeometryMode(G_LIGHTING | G_CULL_BACK),
     gsDPSetCombineMode(G_CC_SHADE, G_CC_SHADE),
