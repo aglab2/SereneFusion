@@ -1,9 +1,10 @@
-extern void scroll_ab_dl_aa_mesh_layer_5_vtx_0();
-extern void scroll_ab_dl_Plane_001_mesh_layer_1_vtx_20();
+extern void scroll_ab_dl_Plane_001_mesh_layer_1_vtx_19();
 extern void scroll_ab_dl_Plane_002_mesh_layer_1_vtx_1();
 extern void scroll_ab_dl_Plane_003_mesh_layer_1_vtx_1();
 extern void scroll_ab_dl_Plane_004_mesh_layer_1_vtx_0();
 extern void scroll_ab_dl_Plane_007_mesh_layer_6_vtx_0();
+extern void scroll_ab_dl_zw_mesh_layer_5_vtx_0();
+extern void scroll_ab_dl_zw_mesh_layer_5_vtx_1();
 extern void scroll_ab_dl_Azure_Abyss2_010_mesh_layer_1_vtx_6();
 extern void scroll_ab_dl_Plane_005_mesh_layer_1_vtx_0();
 extern void scroll_gfx_ab_dl_Azure_Abyss2_005_mesh_layer_5();

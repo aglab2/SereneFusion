@@ -5,6 +5,8 @@
 #include "profiling.h"
 #include "fasttext.h"
 
+#include "game/level_update.h"
+
 #ifdef USE_PROFILER
 
 #define RDP_CYCLE_CONV(x) ((10 * (x)) / 625) // 62.5 million cycles per frame
@@ -235,7 +237,7 @@ void profiler_print_times() {
             "\n"
             "RSP\t\t%d (%d%%)\n"
             " Gfx\t\t\t%d\n"
-            " Audio\t\t\t%d\n",
+            " Audio\t\t\t%d\n%d %d %d",
             1000000.0f / microseconds[PROFILER_TIME_FPS],
             total_cpu, total_cpu / 333, 
             microseconds[PROFILER_TIME_CONTROLLERS],
@@ -250,7 +252,8 @@ void profiler_print_times() {
             microseconds[PROFILER_TIME_PIPE],
             total_rsp, total_rsp / 333,
             microseconds[PROFILER_TIME_RSP_GFX],
-            microseconds[PROFILER_TIME_RSP_AUDIO]
+            microseconds[PROFILER_TIME_RSP_AUDIO],
+            (int) gMarioStates->pos[0], (int) gMarioStates->pos[1], (int) gMarioStates->pos[2]
         );
 
         Gfx* dlHead = gDisplayListHead;

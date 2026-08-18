@@ -273,12 +273,12 @@ void ab_purple_switch_loop()
             {
                 if (!o->parentObj)
                 {
-                    o->parentObj = spawn_star(o, -844.f, -1183.f, -9370.f);
+                    o->parentObj = spawn_star(o, -442.f, 2124.f-1183.f, -2149.f);
                     o->parentObj->oBehParams = 4 << 24;
                 }
                 else
                 {
-                    o->parentObj->oPosY = -1183.f;
+                    o->parentObj->oPosY = 2124.f-1183.f;
                 }
 
                 o->oAction = PURPLE_SWITCH_ACT_PRESSED;
