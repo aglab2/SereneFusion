@@ -113,6 +113,7 @@ lib/libs2d_engine.a
 !/sound/sequences/us/03_level_grass.m64
 !/sound/sequences/us/0E_event_powerup.m64
 !/sound/sequences/us/14_event_race.m64
+!/sound/sequences/us/1F_cutscene_victory.m64
 
 !/levels/wmotr/map.rgba16.png
 !/levels/wmotr/mario.rgba16.png
