@@ -31,7 +31,7 @@ void mtc_yellow_spawner_loop()
             o->oTimer = o->oBehParams2ndByte * 30 + 1;
         }
 
-        if (o->oTimer > 150)
+        if (o->oTimer > 155)
         {
             o->oAction = 0;
             spawn_object(o, MODEL_MTC_BALL, bhvMtcYellowBall);
