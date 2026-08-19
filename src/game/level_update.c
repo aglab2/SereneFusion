@@ -68,7 +68,7 @@ const char *creditsSpiders[] = { "1DEVELOPER", "USERNAMES ARE SPIDERS" };
 
 struct CreditsEntry sCreditsSequence[] = {
     { LEVEL_CASTLE_GROUNDS, 1, 1, -128, { 0, 8000, 0 }, NULL },
-    { LEVEL_AB,             1, 1, 117,   { -3028, 93, -8781 }  , creditsFM },
+    { LEVEL_AB,             1, 1, 117,   { -3028 + 5701 - 5267, 93 - 1990 + 3951, -8781 + 11153 - 3887 }  , creditsFM },
     { LEVEL_DF,             1, 18, 22,   { -3268, 2133, -2823 } , creditsOrganizer },
     { LEVEL_MF,             1, -15, 123, { -1115, 0, -1581 }, creditsArthur },
     { LEVEL_MTC,            1, 34, 25,   { 1071, 2046, 223 }, creditsBroDute },
