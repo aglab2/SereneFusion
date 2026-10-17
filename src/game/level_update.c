@@ -1156,6 +1156,8 @@ void basic_update(void) {
     }
 }
 
+extern void rovert_check_instant_warp();
+
 s32 play_mode_normal(void) {
 #ifndef DISABLE_DEMO
     if (gCurrDemoInput != NULL) {
@@ -1171,6 +1173,8 @@ s32 play_mode_normal(void) {
 
     warp_area();
     check_instant_warp();
+    rovert_check_instant_warp();
+
     /*char buffer[50]; debug text
     sprintf(buffer, "up times: %d down times: %d gDnvicChamber: %d", gDnvicUpCounter, gDnvicDownCounter, gDnvicChamber); 
     /dnvic_print_white_text(100, 100, buffer, PRINT_TEXT_ALIGN_CENTRE, PRINT_ALL, 0xFF); */

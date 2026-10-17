@@ -112,6 +112,30 @@ void rovert_init(void) {
     sLastVisitedPool[2] = 15.f;
 }
 
+static int sDeferWarp = 0;
+void rovert_check_instant_warp()
+{
+    if (gCurrLevelNum != LEVEL_ROVERT)
+        sDeferWarp = 0;
+    if (!sDeferWarp)
+        return;
+
+    sDeferWarp = 0;
+    u8 goarea = (gCurrAreaIndex==1) ? 2 : 1;
+    u16 cameraAngle = gMarioState->area->camera->yaw;
+    change_area(goarea);
+    gMarioState->area = gCurrentArea;
+    gMarioState->area->camera->yaw = cameraAngle;
+    sTimeWarpTransition = 255.0f;
+    sWatchAmount --;
+    play_sound(SOUND_OBJ_MRI_SHOOT,gMarioState->marioObj->header.gfx.cameraToObject);
+    if (gCurrAreaIndex == 1) {
+        load_segment_decompress_skybox(0xA,_cloud_floor_skybox_yay0SegmentRomStart,_cloud_floor_skybox_yay0SegmentRomEnd);
+    } else {
+        load_segment_decompress_skybox(0xA,_bidw_skybox_mio0SegmentRomStart, _bidw_skybox_mio0SegmentRomEnd);
+    }
+}
+
 void rovert_loop(void) {
 
     //osRTCInit();
@@ -130,21 +154,7 @@ void rovert_loop(void) {
          && (sWatchAmount > 0)
          && (gWigglerHealth > 1)
          && (0 == sLWarpAction)) {
-            u8 goarea = (gCurrAreaIndex==1) ? 2 : 1;
-            u16 cameraAngle = gMarioState->area->camera->yaw;
-            change_area(goarea);
-            gMarioState->area = gCurrentArea;
-            gMarioState->area->camera->yaw = cameraAngle;
-            sTimeWarpTransition = 255.0f;
-            sWatchAmount --;
-            play_sound(SOUND_OBJ_MRI_SHOOT,gMarioState->marioObj->header.gfx.cameraToObject);
-            if (gCurrAreaIndex == 1) {
-                load_segment_decompress_skybox(0xA,_cloud_floor_skybox_yay0SegmentRomStart,_cloud_floor_skybox_yay0SegmentRomEnd);
-            } else {
-                load_segment_decompress_skybox(0xA,_bidw_skybox_mio0SegmentRomStart, _bidw_skybox_mio0SegmentRomEnd);
-            }
-
-            update_mario_inputs(gMarioState);
+            sDeferWarp = 1;
         }
 
         if (!gCurrCreditsEntry)
