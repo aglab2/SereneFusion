@@ -766,7 +766,7 @@ void hf_vc_ctl_music()
             sMusicFlags |= 1;
             if (!played)
             {
-                f32 snd[] = { 0.f, 10.f, 0.f };
+                static const f32 snd[] = { 0.f, 10.f, 0.f };
                 play_sound(SOUND_OBJ_BOO_LAUGH_SHORT, snd);
                 played = 1;
             }
@@ -776,7 +776,7 @@ void hf_vc_ctl_music()
             sMusicFlags |= 2;
             if (!played)
             {
-                f32 snd[] = { 0.f, 30.f, 0.f };
+                static const f32 snd[] = { 0.f, 30.f, 0.f };
                 play_sound(SOUND_OBJ_MAD_PIANO_CHOMPING, snd);
                 played = 1;
             }
