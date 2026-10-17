@@ -143,6 +143,8 @@ void rovert_loop(void) {
             } else {
                 load_segment_decompress_skybox(0xA,_bidw_skybox_mio0SegmentRomStart, _bidw_skybox_mio0SegmentRomEnd);
             }
+
+            update_mario_inputs(gMarioState);
         }
 
         if (!gCurrCreditsEntry)
